@@ -45,7 +45,7 @@ namespace APBDkol2.Controllers
 
             foreach(var track in tracks){
                 foreach(var album in albums)
-                if( _service.IsTrackOnAlbum(track.IdTrack,album.IdAlbum)){
+                if( !await _service.IsTrackOnAlbum(track.IdTrack,album.IdAlbum)){
                     _service.DeleteMusician(id);
                 }
             }
