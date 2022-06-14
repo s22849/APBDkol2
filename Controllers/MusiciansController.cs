@@ -43,10 +43,10 @@ namespace APBDkol2.Controllers
 
         var albums = _service.GetAlbums().ToList();
 
-            foreach(var track in tracks){
+            foreach(Musician_Track track in tracks){
                 foreach(var album in albums)
                 if( !await _service.IsTrackOnAlbum(track.IdTrack,album.IdAlbum)){
-                    _service.DeleteMusician(id);
+                   await _service.DeleteMusician(id);
                 }
             }
 
